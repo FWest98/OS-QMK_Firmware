@@ -1,0 +1,44 @@
+#pragma once
+
+#ifndef __ASSEMBLER__
+enum layers {
+    BASE_1,
+    FN_1,
+    BASE_2,
+    FN_2,
+    BASE_3,
+    FN_3,
+    BASE_4,
+    FN_4,
+    BASE_5,
+    FN_5
+};
+#endif
+
+// Set dynamic keymap layer count
+#define DYNAMIC_KEYMAP_LAYER_COUNT 10
+
+#undef NUM_LOCK_LED_INDEX
+
+// RGB Matrix configuration
+#ifdef RGB_MATRIX_ENABLE
+
+#define RGB_MATRIX_INDICATORS
+#define INDICATORS_NUMLOCK_INVERTED
+#define INDICATORS_NUMLOCK_LIGHT_NUMS
+#define INDICATORS_NUMLOCK_LIGHT_KEY
+#define INDICATORS_NUMLOCK_COLOR RGB_RED
+#define INDICATORS_NUMLOCK_ACTIVE_LAYERS BASE_1
+
+#define RGB_MATRIX_LAYERS
+#define RGB_LAYERS        BASE_2,   BASE_3,    BASE_4,     BASE_5
+#define RGB_LAYERS_COLORS RGB_BLUE, RGB_GREEN, RGB_ORANGE, RGB_PINK
+
+#define RGB_MATRIX_FUNCTIONFILTER
+#define FUNCTIONFILTER_LAYERS FN_1, FN_2, FN_3, FN_4, FN_5
+
+#define RGB_DISABLE_WHEN_USB_SUSPENDED
+#define RGB_MATRIX_KEYPRESSES
+#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+
+#endif
