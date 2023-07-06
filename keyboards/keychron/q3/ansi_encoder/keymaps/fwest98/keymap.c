@@ -33,7 +33,9 @@ enum unicode_names {
     KAPPA, LAMBDA, LLAMBDA, MU, NU, XI, XXI, PI, PPI, RHO, SIGMA, SSIGMA, TAU, UPSILON,
     PHI, PPHI, PHIALT, XHI, PSI, PPSI, OMEGA, OOMEGA,
 
-    CDOT, LNOT, FORALL, EXISTS, NEXISTS, EMPTYSET, NABLA, ELEM, NELEM,
+    CDOT, LNOT, FORALL, EXISTS, NEXISTS, EMPTYSET, NABLA, ELEM, NELEM, LAND, LOR, IMPL,
+    RIMPL, CAP, CUP, OTIMES, OPLUS, OMINUS, ODOT, O, OCIRC, NAT, ZET, Q, REAL, COMPLEX,
+    TIMES, DIAMOND, BOX, TOP, BOT
 };
 
 const uint32_t PROGMEM unicode_map[] = {
@@ -45,7 +47,11 @@ const uint32_t PROGMEM unicode_map[] = {
     [PSI] = 0x03C8, [PPSI] = 0x03A8, [OMEGA] = 0x03C9, [OOMEGA] = 0x03A9,
 
     [CDOT] = 0x22C5, [LNOT] = 0x00AC, [FORALL] = 0x2200, [EXISTS] = 0x2203, [NEXISTS] = 0x2204,
-    [EMPTYSET] = 0x2205, [NABLA] = 0x2207, [ELEM] = 0x2208, [NELEM] = 0x2209
+    [EMPTYSET] = 0x2205, [NABLA] = 0x2207, [ELEM] = 0x2208, [NELEM] = 0x2209, [LAND] = 0x2227,
+    [LOR] = 0x2228, [IMPL] = 0x2192, [RIMPL] = 0x2190, [CAP] = 0x2229, [CUP] = 0x222A, [OTIMES] = 0x2297,
+    [OPLUS] = 0x2295, [NAT] = 0x2115, [ZET] = 0x2124, [Q] = 0x211A, [REAL] = 0x211D, [COMPLEX] = 0x2102,
+    [OMINUS] = 0x2296, [TIMES] = 0x00D7, [OCIRC] = 0x229A, [ODOT] = 0x2299, [O] = 0x2218,
+    [DIAMOND] = 0x25CA, [BOX] = 0x25A1, [TOP] = 0x22A4, [BOT] = 0x22A5
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -91,10 +97,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MATH] = LAYOUT_tkl_f13_ansi(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,
-        _______,  X(LNOT),  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  X(EMPTYSET),  _______,  _______,    _______,  _______,  _______,  _______,
-        _______,  _______,  _______,  XP(EXISTS, NEXISTS),  _______,  _______,  _______,  _______,  XP(ELEM, NELEM),  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,
+        _______,  X(LNOT),  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  X(EMPTYSET),  X(OMINUS),  X(OPLUS),    _______,  _______,  _______,  _______,
+        XP(IMPL, RIMPL),  X(Q),  _______,  XP(EXISTS, NEXISTS),  X(REAL),  XP(TOP, BOT),  X(CAP),  X(CUP),  XP(ELEM, NELEM),  XP(O, OCIRC),  _______,  X(BOX),  _______,    _______,  _______,  _______,  _______,
         _______,  X(FORALL),  _______,  X(NABLA),  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,              _______,
-        KC_LSFT,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  X(CDOT),  _______,              KC_RSFT,            _______,
+        KC_LSFT,            X(ZET),  XP(TIMES, OTIMES),  X(COMPLEX),  X(LOR),  X(LAND),  X(NAT),  _______,  X(DIAMOND),  XP(CDOT, ODOT),  _______,              KC_RSFT,            _______,
         _______,  _______,  _______,                                _______,                                _______,  _______,  TO(WIN_BASE),    _______,  _______,  _______,  _______)
 };
 
